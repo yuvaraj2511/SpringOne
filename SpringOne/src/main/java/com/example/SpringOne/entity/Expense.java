@@ -1,35 +1,33 @@
 package com.example.SpringOne.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+@Table(name = "expense")
 public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "payment_id")
     private Long id;
 
+    @Column(name = "amount")
     private Double amount;
 
+    @Column(name = "payment_type")
     private String type;
 
+    @Column(name = "payment_date")
     private LocalDate date;
 
+    @Column(name = "purpose")
     private String purpose;
 
+    @Column(name = "payment_mode")
     private String paymentMode;
 
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -77,7 +75,4 @@ public class Expense {
     public void setPaymentMode(String paymentMode) {
         this.paymentMode = paymentMode;
     }
-
-
-
 }
